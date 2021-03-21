@@ -1,0 +1,25 @@
+https://collect.chat/ (For ChatBot Creation)
+
+https://www.freelogodesign.org/ (For Free Logo Design)
+
+
+future implementations of project
+
+Need to add user type such as Customer,Admin,Delivery_Person
+
+Real Time Tracking System Using Google Map API
+
+Dark Mode Theme
+
+Password Encryption 
+
+Auto SMS Alert (Order Confirmation Number) to Mobile or Gmail after Successful Order Made by Customers
+
+End To End Encryption Payment Gateway
+
+More Payment Methods Such as Paypal,Bitcoin etc...
+
+Divide the Customers based on number of orders made by them into particular month such as Platinum User,Gold User,Silver User so that Customer made their payment using the card points which will be totally depend on number of made by them in certain month period
+
+
+
