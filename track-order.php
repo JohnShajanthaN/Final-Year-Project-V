@@ -32,56 +32,53 @@ window.print();
       
     </tr>
     <tr height="30">
-      <td  class="fontkink1"><b>order Id:</b></td>
+      <td  class="fontkink1"><b>Bill No:</b></td>
       <td  class="fontkink"><?php echo $oid;?></td>
     </tr>
     <?php 
 $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
-$num=mysqli_num_rows($ret);
+
+$ret1 = mysqli_query($con,"SELECT * FROM orders WHERE bill_no='$oid'");
+
+$num=mysqli_num_rows($ret1);
 if($num>0)
 {
-while($row=mysqli_fetch_array($ret))
-      {
+if($row=mysqli_fetch_array($ret1))
+      
+	  {
      ?>
-		
-    
-    
+
       <tr height="20">
-      <td class="fontkink1" ><b>At Date:</b></td>
-      <td  class="fontkink"><?php echo $row['postingDate'];?></td>
+      <td class="fontkink1" ><b>Order Date:</b></td>
+      <td  class="fontkink"><?php echo $row['orderDate'];?></td>
     </tr>
      <tr height="20">
-      <td  class="fontkink1"><b>Status:</b></td>
-      <td  class="fontkink"><?php echo $row['status'];?></td>
+      <td  class="fontkink1"><b>Payment Method:</b></td>
+      <td  class="fontkink"><?php echo $row['paymentMethod'];?></td>
     </tr>
      <tr height="20">
-      <td  class="fontkink1"><b>Remark:</b></td>
-      <td  class="fontkink"><?php echo $row['remark'];?></td>
+      <td  class="fontkink1"><b>Order Status:</b></td>
+      <td  class="fontkink"><?php echo $row['orderStatus'];?></td>
+    </tr>
+	 <tr height="20">
+      <td  class="fontkink1"><b>Delivery Time:</b></td>
+      <td  class="fontkink"><?php echo $row['delivery_time'];?></td>
     </tr>
 
    
     <tr>
       <td colspan="2"><hr /></td>
     </tr>
-   <?php } }
-else{
+   <?php } 
+}
+   
+else
+{
    ?>
    <tr>
-   <td colspan="2">Order Not Process Yet</td>
+   <td colspan="2"></td>
    </tr>
-   <?php  }
-$st='Delivered';
-   $rt = mysqli_query($con,"SELECT * FROM orders WHERE bill_no='$oid'");
-     while($num=mysqli_fetch_array($rt))
-     {
-     $currrentSt=$num['orderStatus'];
-   }
-     if($st==$currrentSt)
-     { ?>
-   <tr><td colspan="2"><b>
-      Product Delivered successfully </b></td>
-   <?php } 
- 
+ <?php  }
   ?>
 </table>
  </form>

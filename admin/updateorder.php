@@ -12,9 +12,17 @@ if(isset($_POST['submit2'])){
 $status=$_POST['status'];
 $remark=$_POST['remark'];//space char
 
+date_default_timezone_set('Asia/Kolkata');// change according timezone
+$currentTime = date( 'Y-m-d h:i:s A', time () );
+
+
 $query=mysqli_query($con,"insert into ordertrackhistory(orderId,status,remark) values('$oid','$status','$remark')");
-$sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
-echo "<script>alert('Order updated sucessfully...');</script>";
+
+//$sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
+
+$sql=mysqli_query($con,"update orders set orderStatus='$status',delivery_time='$currentTime' where id='$oid'");
+
+echo "<script>alert('Order Updated sucessfully...');</script>";
 //}
 }
 
@@ -48,11 +56,11 @@ window.print();
       
     </tr>
     <tr height="30">
-      <td  class="fontkink1"><b>order Id:</b></td>
+      <td  class="fontkink1"><b>Bill No:</b></td>
       <td  class="fontkink"><?php echo $oid;?></td>
     </tr>
     <?php 
-$ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
+$ret = mysqli_query($con,"SELECT * FROM orders WHERE bill_no='$oid'");
      while($row=mysqli_fetch_array($ret))
       {
      ?>
@@ -60,9 +68,10 @@ $ret = mysqli_query($con,"SELECT * FROM ordertrackhistory WHERE orderId='$oid'")
     
     
       <tr height="20">
-      <td class="fontkink1" ><b>At Date:</b></td>
+      <td class="fontkink1" ><b>Order Date:</b></td>
       <td  class="fontkink"><?php echo $row['postingDate'];?></td>
     </tr>
+	
      <tr height="20">
       <td  class="fontkink1"><b>Status:</b></td>
       <td  class="fontkink"><?php echo $row['status'];?></td>

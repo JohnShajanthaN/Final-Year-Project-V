@@ -42,7 +42,7 @@ $currentTime = date( 'd-m-Y h:i:s A', time () );
 	</style>
 	<script>
 function myFunction() {
-  alert("Copy the  link for share your bill!<br> localhost/final/admin/view-bill.php");
+  alert("Copy the  link for share your bill!<br> localhost/final/admin/view-bill.php?bill_no=5");
 }
 </script>
 </head>
@@ -89,7 +89,7 @@ function myFunction() {
 				
 				<thead>
 									
-				<tr>
+				<tr style="background-color:lightgreen;">
 											
 				<th class="cart-romove item" style="text-align:center;font-weight:bold;">Bill No</th>
 				<th class="cart-product-name item" style="text-align:center;font-weight:bold;">User Name</th>
@@ -110,7 +110,7 @@ function myFunction() {
 
 <?php while($row=mysqli_fetch_array($query)){
 	?>
-				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped	 display" width="100%">
+				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered display" width="100%">
 																	
 				<tbody>
 				

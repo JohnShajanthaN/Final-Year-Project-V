@@ -59,6 +59,7 @@ else{ ?>
 				</ul>
 			</div><!-- /.cnt-account -->
 
+	
 				<div class="cnt-block">
 					
 				<ul class="list-unstyled list-inline">
@@ -71,6 +72,7 @@ else{ ?>
 				</ul>
 				
 				</div>
+				
 			
 			<div class="clearfix"></div>
 		</div><!-- /.header-top-inner -->

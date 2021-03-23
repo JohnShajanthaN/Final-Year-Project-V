@@ -110,13 +110,13 @@ from orders join users on orders.userId=users.id where bill_no =$var");
 while($row=mysqli_fetch_array($query))
 {
 ?>
-				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped	 display" width="100%">
+				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered display" width="100%">
 																	
 				<tbody>
 				
 			<thead>
 									
-				<tr>
+				<tr style="background-color:lightgreen;"> 
 											
 				<th style="text-align:center;font-weight:bold;" width="60px">Bill No</th>
 				<th style="text-align:center;font-weight:bold;" width="60px">User Name</th>
@@ -129,7 +129,7 @@ while($row=mysqli_fetch_array($query))
 										
 				</thead>
 				
-				<tr>
+				<tr style="background-color:lightyellow;">
 				
 					<td width="87px" style="text-align:center;"><?php echo $row['bill_no']; ?>  </td>
 					<td width="137px" style="text-align:center;"><?php echo $row['name']; ?>  </td>
@@ -137,7 +137,7 @@ while($row=mysqli_fetch_array($query))
 					<td width="137px" style="text-align:center;"><?php echo $row['orderDate']; ?>  </td>
 					<td width="199px" style="text-align:center;"><?php echo $row['paymentMethod'];?> </td>		
 					<td style="text-align:center;"> 
-					<button type="button" onclick="show()" name="view" class="btn btn-primary" style="width:80px;border-radius:50px;"> <a href="manage-bills.php" style="text-decoration:none;color:white;">View </button> 
+					<button type="button" onclick="show()" name="view" class="btn btn-primary" style="width:80px;border-radius:50px;"> <a href="manage-bills.php" style="text-decoration:none;color:white;"> Back </button> 
 					<button type="button"  name="share" class="btn btn-warning" style="width:80px;border-radius:50px;" onclick="myFunction()">  Share </button> 
 					</td>
 			
@@ -149,11 +149,11 @@ while($row=mysqli_fetch_array($query))
 				
 				<br>
 							
-				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped	 display" width="100%">
+				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered display" width="100%">
 																	
 				<tbody>
 				
-				<tr>
+				<tr style="background-color:orange;">
 				
 				<th style="text-align:center;font-weight:bold;" width="60px">#</th>
 				<th style="text-align:center;font-weight:bold;" width="60px">Product Name</th>
@@ -174,7 +174,7 @@ while($row=mysqli_fetch_array($query1))
 {
 ?>
 
-				<tr align="center">
+				<tr align="center" style="background-color:lightyellow;">
 				
 					<td width="87px" style="text-align:center;">
 					<h5 class='cart-product-description'>

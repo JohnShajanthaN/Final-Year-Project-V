@@ -94,7 +94,7 @@ while($row=mysqli_fetch_array($query2))
 
 <thead>
 			
-				<tr>
+				<tr style="background-color:lightgreen;">
 					<th class="cart-romove item"><?php echo htmlentities($row['orderDate']);?> </th>
 					
 					<th class="cart-romove item">Food_Mafia (Pvt) Ltd</th>
@@ -102,7 +102,7 @@ while($row=mysqli_fetch_array($query2))
 					<th class="cart-romove item">Bill Number : <?php echo htmlentities($row['bill_no']);?></th>
 				</tr>
 			
-				<tr>
+				<tr style="background-color:lightyellow;">
 					<th class="cart-romove item">Item Nums</th>
 					<th class="cart-product-name item">Product Name</th>
 					<th class="cart-qty item">Quantity</th>
@@ -125,7 +125,7 @@ while($row=mysqli_fetch_array($query))
 			
 				<tbody>
 
-				<tr align="center">
+				<tr align="center" style="background-color:lightyellow;">
 				
 					<td>
 					<h5 class='cart-product-description'>
@@ -171,16 +171,15 @@ $total_amount=$total_amount+(($qty*$price)+$shippcharge);
 }
 ?>
 
-					<tr>
+					<tr style="background-color:lightyellow;">
 					
 					<td colspan="5"> <h4 class='cart-product-description' align="right"> Total Bill Amount </h4> </td>
 					<td> <h4 class='cart-product-description' align="center"> Rs <?php echo $total_amount;?>.00 </h4> </td>
 					
 					</tr>
 					
-					<tr>
-					<td colspan="6"> </td>
-					</tr>
+<br>
+<br>					
 
 <?php 
 } 

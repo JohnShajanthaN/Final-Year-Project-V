@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$_SESSION['billid']=$_POST['billid'];
+// $_SESSION['billid']=$_POST['billid'];
 error_reporting(0);
 include('includes/config.php');
 ?>
@@ -104,14 +104,24 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 $orderid=$_POST['billid'];
 $email=$_POST['email'];
 $password=$_POST['pass'];
-$ret = mysqli_query($con,"select t.email,t.id,t.password from (select usr.email,usr.password,odrs.id from users
- as usr join orders as odrs on usr.id=odrs.userId) as t where  t.email='$email' and t.password='$password'");
-$num=mysqli_num_rows($ret);
 
-if($num>0)
+// $ret = mysqli_query($con,"select t.email,t.id,t.password from (select usr.email,usr.password,odrs.id from users
+// as usr join orders as odrs on usr.id=odrs.userId) as t where  t.email='$email' and t.password='$password'");
+ 
+$ret1 = mysqli_query($con,"select orders.userId,orders.bill_no,users.email,users.password from users join orders on users.id=orders.userId where users.email='$email' and users.password='$password' and orders.bill_no='$orderid'");
+
+$num=mysqli_num_rows($ret1);
+
+
+if($num==0)
+{
+	echo "<b>  There is no records founds. Invalid Bill No !!!  <b>";
+}
+
+else
 {
 	
-$query=mysqli_query($con,"select products.productImage1 as pimg1,products.productName as pname,orders.productId as opid,
+$query=mysqli_query($con,"select products.productImage1 as pimg1,products.category as cat,products.productName as pname,orders.productId as opid,
 orders.quantity as qty,products.productPrice as pprice,orders.paymentMethod as paym,orders.orderDate as odate,
 orders.id as orderid from orders join products on orders.productId=products.id where orders.bill_no='$orderid' and orders.paymentMethod is not null");
 $cnt=1;
@@ -123,7 +133,7 @@ while($row=mysqli_fetch_array($query))
 					<td><?php echo $cnt;?></td>
 					<td class="cart-image">
 						<a class="entry-thumbnail" href="detail.html">
-						    <img src="admin/productimages/<?php echo $row['pname'];?>/<?php echo $row['pimg1'];?>" alt="" width="84" height="146">
+						    <img src="admin/productimages/<?php echo $row['cat'];?>/<?php echo $row['pimg1'];?>" alt="" width="84" height="146">
 						</a>
 					</td>
 					<td class="cart-product-name-info">
@@ -148,8 +158,14 @@ while($row=mysqli_fetch_array($query))
 <tr>
 
 <td align="right" colspan="8">
- <a href="javascript:void(0);" onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']);?>');" title="Track order">
-					Track</td> 
+
+
+ <a href="javascript:void(0);" onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($orderid);?>');" title="Track order" style="color:purple;font-weight:bold;font-size:20px;text-shadow:2px 1px;">
+TRACK ORDER
+</a>
+
+
+</td> 
 					
 </tr>
 
