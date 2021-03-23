@@ -65,15 +65,18 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 			<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive" >
 									<thead>
 										<tr>
-											<th>#</th>
-											<th> Name</th>
-											<th width="50">Email /Contact no</th>
-											<th>Shipping Address</th>
-											<th>Product </th>
-											<th>Qty </th>
+											<th width="20">#</th>
+											<th width="50"> Bill No</th>
+											<th width="50"> Username </th>
+											<th width="50"> Email Address</th>
+											<th width="50"> Contact No </th>
+											<th width="50"> Action </th>
+											
+											<!--
 											<th>Amount </th>
 											<th>Order Date</th>
 											<th>Action</th>
+											-->
 											
 										
 										</tr>
@@ -85,11 +88,15 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 $from=date('Y-m-d')." ".$f1;
 $t1="23:59:59";
 $to=date('Y-m-d')." ".$t1;
+
 $query=mysqli_query($con,"select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
+
+$query1=mysqli_query($con,"select DISTINCT orders.bill_no,users.name,users.email,users.contactno from orders join users on orders.userId=users.id  where orders.orderDate Between '$from' and '$to' and orders.orderStatus!='Delivered'");
+
 $cnt=1;
-while($row=mysqli_fetch_array($query))
+while($row=mysqli_fetch_array($query1))
 {
-?>										
+?>										<!--
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
 											<td><?php echo htmlentities($row['username']);?></td>
@@ -101,6 +108,17 @@ while($row=mysqli_fetch_array($query))
 											<td><?php echo htmlentities($row['quantity']*$row['productprice']+$row['shippingcharge']);?></td>
 											<td><?php echo htmlentities($row['orderdate']);?></td>
 											<td>    <a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
+											</td>
+											</tr>
+										-->
+										
+											<tr>
+											<td> <?php echo htmlentities($cnt);?></td>
+											<td> <?php echo htmlentities($row['bill_no']);?> </td>
+											<td> <?php echo htmlentities($row['name']);?> </td>
+											<td> <?php echo htmlentities($row['email']);?> </td>	
+											<td><?php echo htmlentities($row['contactno']);?></td>
+											<td>    <a href="updateorder.php?oid=<?php echo htmlentities($row['bill_no']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
 											</td>
 											</tr>
 

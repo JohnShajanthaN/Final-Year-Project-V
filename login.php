@@ -339,9 +339,9 @@ echo htmlentities($_SESSION['errmsg']="");
 		    <label class="labelname" style="font-weight:bold;" for="exampleInputPassword1">Password <span>*</span></label>
 		 <input type="password" name="password"  class="form-control inputtype" id="exampleInputPassword1">
 		 
-		 <button type="submit" name="login" style="margin-left:0px;margin-top:20px;">Login</button>
+		 <button type="submit" name="login" style="margin-left:0px;margin-top:20px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Login</button>
 		 
-		 <input type="button" value="Show" id="show" onclick="visible()" style="margin-left:27px;margin-top:40px;">
+		 <input type="button" value="Show" id="show" onclick="visible()" style="margin-left:27px;margin-top:40px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 		
 		 <a href="forgot-password.php" style="margin-left:17px;margin-top:49px;font-size:15px;font-weight:bold;font-style:italic;">Forgot your Password?</a>
 		
@@ -424,9 +424,9 @@ echo htmlentities($_SESSION['errmsg']="");
 	  	</div>
 
 
-	  	<button type="submit" name="submit" id="submit" style="padding-top:1px;">Sign Up</button>
+	  	<button type="submit" name="submit" id="submit" style="padding-top:1px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Sign Up</button>
 		
-		<input type="button" value="Show" id="show1" onclick="visible1()" style="margin-left:27px;margin-top:20px;">
+		<input type="button" value="Show" id="show1" onclick="visible1()" style="margin-left:27px;margin-top:20px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 		
 	</form>
 	

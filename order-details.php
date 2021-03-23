@@ -126,9 +126,12 @@ orders.quantity as qty,products.productPrice as pprice,orders.paymentMethod as p
 orders.id as orderid from orders join products on orders.productId=products.id where orders.bill_no='$orderid' and orders.paymentMethod is not null");
 $cnt=1;
 
+$totalamount=0;
+
 while($row=mysqli_fetch_array($query))
 {
 ?>
+			
 				<tr>
 					<td><?php echo $cnt;?></td>
 					<td class="cart-image">
@@ -153,7 +156,21 @@ while($row=mysqli_fetch_array($query))
 					
 				</tr>	
 				
-<?php $cnt=$cnt+1;}?>
+<?php $cnt=$cnt+1;?>
+
+<?php $totalamount=$totalamount+($qty*$price);}?>
+
+<tr>
+
+<td align="right" colspan="7">
+<h4> Total Bill Amount </h4>
+</td> 
+
+<td align="right" colspan="1">
+<h4> Rs <?php echo htmlentities($totalamount);?> .00 </h4>
+</td> 
+					
+</tr>
 
 <tr>
 

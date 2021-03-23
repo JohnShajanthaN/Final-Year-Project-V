@@ -32,8 +32,13 @@ exit();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Admin Panel</title>
 	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +46,15 @@ exit();
 	<link type="text/css" href="css/theme.css" rel="stylesheet">
 	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
+
+  <title>Samson</title>
+
+  <script src="https://kit.fontawesome.com/ce4c653788.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="123.css">
+
 </head>
+
 <body>
 
 	<div class="navbar navbar-fixed-top">
@@ -74,46 +87,24 @@ exit();
 	</div><!-- /navbar -->
 
 
-
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="module module-login span4 offset4">
-					<form class="form-vertical" method="post">
-						<div class="module-head">
-							<h3>Sign In</h3>
-						</div>
-						<span style="color:red;" ><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg']="");?></span>
-						<div class="module-body">
-							<div class="control-group">
-								<div class="controls row-fluid">
-									<input class="span12" type="text" id="inputEmail" name="username" placeholder="Username" style="border-radius:50px;">
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls row-fluid">
-						<input class="span12" type="password" id="inputPassword" name="password" placeholder="Password" style="border-radius:50px;">
-								</div>
-							</div>
-						</div>
-						<div class="module-foot">
-							<div class="control-group">
-								<div class="controls clearfix">
-									<button type="submit" class="btn btn-primary pull-right" name="submit" style="border-radius:50px;">Login</button>
-									
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
+	<div class="form-container sign-in-container" style="width:450px;height:450px;margin-left:450px;margin-top:40px;">
+	<h2>Developed By - John Shajanthan</h2>
+		<form action="#">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
-		</div>
-	</div><!--/.wrapper-->
-
-	<div class="footer">
-		
+			<span>or use your account</span>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<button>Login</button>
+		</form>
 	</div>
-	<script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
-	<script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
-	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<script src="123.js" type="text/javascript" ></script>
+
 </body>
+</html>

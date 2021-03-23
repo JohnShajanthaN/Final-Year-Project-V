@@ -20,7 +20,7 @@ $query=mysqli_query($con,"insert into ordertrackhistory(orderId,status,remark) v
 
 //$sql=mysqli_query($con,"update orders set orderStatus='$status' where id='$oid'");
 
-$sql=mysqli_query($con,"update orders set orderStatus='$status',delivery_time='$currentTime' where id='$oid'");
+$sql=mysqli_query($con,"update orders set orderStatus='$status',delivery_time='$currentTime' where bill_no='$oid'");
 
 echo "<script>alert('Order Updated sucessfully...');</script>";
 //}
@@ -60,48 +60,51 @@ window.print();
       <td  class="fontkink"><?php echo $oid;?></td>
     </tr>
     <?php 
-$ret = mysqli_query($con,"SELECT * FROM orders WHERE bill_no='$oid'");
-     while($row=mysqli_fetch_array($ret))
+$ret = mysqli_query($con,"SELECT DISTINCT bill_no,orderDate,paymentMethod,orderStatus,delivery_time FROM orders WHERE bill_no='$oid'");
+     if($row=mysqli_fetch_array($ret))
       {
      ?>
-		
-    
-    
+  
       <tr height="20">
       <td class="fontkink1" ><b>Order Date:</b></td>
-      <td  class="fontkink"><?php echo $row['postingDate'];?></td>
+      <td  class="fontkink"><?php echo $row['orderDate'];?></td>
+    </tr>
+	
+	<tr height="20">
+      <td  class="fontkink1"><b>Payment Method:</b></td>
+      <td  class="fontkink"><?php echo $row['paymentMethod'];?></td>
     </tr>
 	
      <tr height="20">
-      <td  class="fontkink1"><b>Status:</b></td>
-      <td  class="fontkink"><?php echo $row['status'];?></td>
+      <td  class="fontkink1"><b>Order Status:</b></td>
+      <td  class="fontkink"><?php echo $row['orderStatus'];?></td>
     </tr>
-     <tr height="20">
-      <td  class="fontkink1"><b>Remark:</b></td>
-      <td  class="fontkink"><?php echo $row['remark'];?></td>
-    </tr>
-
-   
+	
     <tr>
       <td colspan="2"><hr /></td>
     </tr>
    <?php } ?>
    <?php 
 $st='Delivered';
-   $rt = mysqli_query($con,"SELECT * FROM orders WHERE id='$oid'");
-     while($num=mysqli_fetch_array($rt))
+   $rt = mysqli_query($con,"SELECT DISTINCT bill_no,orderStatus FROM orders WHERE bill_no='$oid'");
+     if($num=mysqli_fetch_array($rt))
      {
      $currrentSt=$num['orderStatus'];
-   }
+	}
+	
      if($st==$currrentSt)
-     { ?>
+     { 
+	?>
    <tr><td colspan="2"><b>
-      Product Delivered </b></td>
-   <?php }else  {
-      ?>
+      Product Delivered Successfully !!!</b></td>
+   <?php 
+   }
    
+   else  
+   {
+      ?>
     <tr height="50">
-      <td class="fontkink1">Status: </td>
+      <td class="fontkink1">Order Status: </td>
       <td  class="fontkink"><span class="fontkink1" >
         <select name="status" class="fontkink" required="required" >
           <option value="">Select Status</option>

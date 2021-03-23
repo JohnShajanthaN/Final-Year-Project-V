@@ -65,15 +65,21 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 								<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display table-responsive" >
 									<thead>
 										<tr>
-											<th>#</th>
-											<th> Name</th>
-											<th width="50">Email</th>
-											<th>Shipping Address</th>
-											<th>Product </th>
-											<th>Qty </th>
+										
+											<th width="20">#</th>
+											<th width="50"> Bill No</th>
+											<th width="50"> Username </th>											
+											<th width="50"> Contact No </th>
+											<th width="50"> Address </th>																			
+											<th width="50"> Order Date </th>										
+											<th width="50"> Delivery Time </th>
+											<th width="50"> Payment Method </th>
+											
+											<!--
 											<th>Amount </th>
 											<th>Order Date</th>
-											<th width="50">Action</th>
+											<th>Action</th>
+											-->				
 											
 										
 										</tr>
@@ -82,24 +88,30 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 <tbody>
 <?php 
 $st='Delivered';
-$query=mysqli_query($con,"select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderStatus='$st'");
+
+// $query=mysqli_query($con,"select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderStatus='$st'");
+
+$query1=mysqli_query($con,"select orders.bill_no as obillno,users.name as uname,users.contactno as ucon,users.shippingAddress as uadd,orders.orderDate as odate,products.productPrice as propri,orders.paymentMethod as paymet,orders.delivery_time as dtime from orders join users on orders.userId=users.id join products on products.id=orders.productId where orders.orderStatus='$st' GROUP BY orders.bill_no ASC");
+
+
 $cnt=1;
-while($row=mysqli_fetch_array($query))
+while($row=mysqli_fetch_array($query1))
 {
 ?>										
 										<tr>
 											<td><?php echo htmlentities($cnt);?></td>
-											<td><?php echo htmlentities($row['username']);?></td>
-											<td><?php echo htmlentities($row['useremail']);?></td>
-										
-											<td><?php echo htmlentities($row['shippingaddress'].",".$row['shippingcity'].",".$row['shippingstate']."-".$row['shippingpincode']);?></td>
-											<td><?php echo htmlentities($row['productname']);?></td>
-											<td><?php echo htmlentities($row['quantity']);?></td>
-											<td><?php echo htmlentities($row['quantity']*$row['productprice']+$row['shippingcharge']);?></td>
-											<td><?php echo htmlentities($row['orderdate']);?></td>
+											<td><?php echo htmlentities($row['obillno']);?></td>
+											<td><?php echo htmlentities($row['uname']);?></td>
+											<td><?php echo htmlentities($row['ucon']);?></td>
+											<td><?php echo htmlentities($row['uadd']);?></td>
+											<td><?php echo htmlentities($row['odate']);?></td>	
+											<td><?php echo htmlentities($row['dtime']);?></td>																<td><?php echo htmlentities($row['paymet']);?></td>
+																				
+											<!--
 											<td>    <a href="updateorder.php?oid=<?php echo htmlentities($row['id']);?>" title="Update order" target="_blank"><i class="icon-edit"></i></a>
 											</td>
-											</tr>
+											-->
+										</tr>
 
 										<?php $cnt=$cnt+1; } ?>
 										</tbody>

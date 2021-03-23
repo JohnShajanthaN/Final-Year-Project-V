@@ -159,13 +159,13 @@ while($row=mysqli_fetch_array($query))
 				<th style="text-align:center;font-weight:bold;" width="60px">Product Name</th>
 				<th style="text-align:center;font-weight:bold;" width="100px">Quantity</th>
 				<th style="text-align:center;font-weight:bold;" width="100px">Unit Price</th>
-				<th style="text-align:center;font-weight:bold;" width="60px">Shipping Charge</th>
+				<th style="text-align:center;font-weight:bold;" width="60px">Delivery Charge</th>
 				<th style="text-align:center;font-weight:bold;" width="405px">Grand Total</th>
 				
 				</tr>	
 				
 <?php $query1=mysqli_query($con," select products.productName as pname,products.category as 
-proid,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.shippingCharge as
+proid,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.deliveryCharge as
  shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products 
  on orders.productId=products.id where bill_no='".$row['bill_no']."'");
 $cnt=1;
