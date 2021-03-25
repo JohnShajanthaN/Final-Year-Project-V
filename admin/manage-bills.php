@@ -73,17 +73,13 @@ function myFunction() {
     </form>
 	
 	</div>
-	
-
-
 
 							</div>
 							
-					
-							
+												
 							<div class="module-body table">
 							
-							<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped	 display" width="100%">
+							<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered display" width="100%">
 																	
 				<tbody>
 				
@@ -113,9 +109,7 @@ function myFunction() {
 				<table cellpadding="0" cellspacing="0" border="0" class="table table-bordered display" width="100%">
 																	
 				<tbody>
-				
-			
-				
+							
 				<tr>
 				
 					<td width="87px" style="text-align:center;"><?php echo $row['bill_no']; ?>  </td>

@@ -1,50 +1,29 @@
 <?php 
 session_start();
 error_reporting(0);
-include('includes/config.php');
+include('include/config.php');
 if(strlen($_SESSION['login'])==0)
     {   
-header('location:login.php');
+header('location:index.php');
 }
 else{
+date_default_timezone_set('Asia/Kolkata');// change according timezone
+$currentTime = date( 'd-m-Y h:i:s A', time () );
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Meta -->
-		<meta charset="utf-8">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-	    <meta name="keywords" content="MediaCenter, Template, eCommerce">
-	    <meta name="robots" content="all">
-
-	    <title>User Order History</title>
-	    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="assets/css/main.css">
-	    <link rel="stylesheet" href="assets/css/green.css">
-	    <link rel="stylesheet" href="assets/css/owl.carousel.css">
-		<link rel="stylesheet" href="assets/css/owl.transitions.css">
-		<!--<link rel="stylesheet" href="assets/css/owl.theme.css">-->
-		<link href="assets/css/lightbox.css" rel="stylesheet">
-		<link rel="stylesheet" href="assets/css/animate.min.css">
-		<link rel="stylesheet" href="assets/css/rateit.css">
-		<link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
-
-		<!-- Demo Purpose Only. Should be removed in production -->
-		<link rel="stylesheet" href="assets/css/config.css">
-
-		<link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
-		<link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
-		<link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">
-		<link href="assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
-		<link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
-		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-		<link rel="shortcut icon" href="assets/images/favicon.ico">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin | Today Orders</title>
+	<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link type="text/css" href="css/theme.css" rel="stylesheet">
+	<link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
+	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet'>
 	<script language="javascript" type="text/javascript">
 var popUpWin=0;
 function popUpWindow(URLStr, left, top, width, height)
@@ -57,44 +36,39 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 }
 
 </script>
+</head>
 
-	</head>
+<body>
+<?php include('include/header.php');?>
+
+	<div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+<?php include('include/sidebar.php');?>				
+			<div class="span10">
+					<div class="content">
 	
-    <body class="cnt-home">
-	
-		
-	
-		<!-- ============================================== HEADER ============================================== -->
-<header class="header-style-1">
-<?php include('includes/top-header.php');?>
-<?php include('includes/main-header.php');?>
-<?php include('includes/menu-bar.php');?>
-</header>
-<!-- ============================================== HEADER : END ============================================== -->
 
+	<div class="module">
+							<div class="module-head">
+								<h3>Sales Summary</h3>
+							</div>
+							<div class="module-body">
+	<?php if(isset($_GET['del']))
+{?>
+									<div class="alert alert-error">
+										<button type="button" class="close" data-dismiss="alert">×</button>
+									<strong>Oh snap!</strong> 	<?php echo htmlentities($_SESSION['delmsg']);?><?php echo htmlentities($_SESSION['delmsg']="");?>
+									</div>
+<?php } ?>
 
-<div class="body-content outer-top-xs">
+									<br />
 
-<?php 
-
-$query2=mysqli_query($con,"select distinct bill_no,orderDate from orders where orders.userId='".$_SESSION['id']."' ORDER BY bill_no DESC");
-
-while($row=mysqli_fetch_array($query2))
-{
-?>
-
-<div class="body-content outer-top-xs" style="margin-top:-120px;">
-	<div class="container">
-		<div class="row inner-bottom-sm">
-			<div class="shopping-cart">
-				<div class="col-md-12 col-sm-12 shopping-cart-table ">
-	<div class="table-responsive">
-<form name="cart" method="post">
-
-<table class="table table-bordered">
+<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table display table-responsive" style="margin-top:-700px;">
 
 <thead>
 			
+			<!--
 				<tr style="background-color:lightgreen;">
 					<th class="cart-romove item"><?php echo htmlentities($row['orderDate']);?> </th>
 					
@@ -102,12 +76,13 @@ while($row=mysqli_fetch_array($query2))
 					<th colspan="3" class="cart-romove item">No:31, Madathady Lane, Kondavil West, Jaffna, Sri Lanka</th>
 					<th class="cart-romove item">Bill Number : <?php echo htmlentities($row['bill_no']);?></th>
 				</tr>
+			-->
 			
-				<tr style="background-color:lightyellow;">
-					<th class="cart-romove item">Item Nums</th>
-					<th class="cart-product-name item">Product Name</th>
-					<th class="cart-qty item">Quantity</th>
-					<th class="cart-sub-total item">Unit Price</th>
+				<tr style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">					
+					<th class="cart-product-name item">Bill No</th>									
+					<th class="cart-product-name item">Username</th>
+					<th class="cart-qty item">Total Quantity</th>
+					<th class="cart-sub-total item">Total Amount</th>
 					<th class="cart-sub-total item">Delivery Charge</th>
 					<th class="cart-total item">Grand Total</th>
 				</tr>
@@ -117,28 +92,37 @@ while($row=mysqli_fetch_array($query2))
 
 <?php 
 
-$query=mysqli_query($con,"select products.productName as pname,orders.quantity as qty,products.productPrice as pprice,products.deliveryCharge as shippingcharge from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.bill_no='".$row['bill_no']."' and orders.paymentMethod is not null");
+$query2=mysqli_query($con,"select distinct bill_no,orderDate from orders ORDER BY bill_no ASC");
 
-$cnt=1;
-$total_amount=0;
+while($row=mysqli_fetch_array($query2))
+{
+  $cnt=$cnt+1;
+?>
 
-while($row=mysqli_fetch_array($query))
-{	
+
+<?php 
+ $query=mysqli_query($con,"select users.name as uname,orders.bill_no,sum(orders.quantity) as qty,products.productPrice as pprice,sum((products.productPrice*orders.quantity)) as tamount,products.deliveryCharge as shippingcharge from products join orders on products.id=orders.productId join users on orders.userId=users.id where orders.bill_no='".$row['bill_no']."' GROUP BY orders.bill_no");
+
+ // $total_amount=0;
+
+ while($row=mysqli_fetch_array($query))
+ {	
 ?>				
 			
 				<tbody>
 
-				<tr align="center" style="background-color:lightyellow;">
-				
-					<td>
-					<h5 class='cart-product-description'>
-					<?php echo $cnt;?>
-					</h5>
+				<tr align="center">
+									
+					
+					<td class="cart-product-name-info">
+						<h5 class='cart-product-description'>
+						<?php echo $row['bill_no'];?> 
+						</h5>
 					</td>
 					
 					<td class="cart-product-name-info">
 						<h5 class='cart-product-description'>
-						<?php echo $row['pname'];?> 
+						<?php echo $row['uname'];?> 
 						</h5>
 					</td>
 				
@@ -151,7 +135,7 @@ while($row=mysqli_fetch_array($query))
 					
 					<td class="cart-product-sub-total">
 					<h5 class='cart-product-description'>
-					Rs <?php echo $price=$row['pprice']; ?>.00  
+					Rs <?php echo $row['tamount']; ?>.00  
 					</h5>
 					</td>
 					
@@ -163,7 +147,7 @@ while($row=mysqli_fetch_array($query))
 					
 					<td class="cart-product-grand-total">
 					<h5 class='cart-product-description'>
-					Rs <?php echo (($qty*$price)+$shippcharge);?>.00
+					Rs <?php echo $row['tamount']+$row['shippingcharge'];?>.00
 					</h5>
 					</td>
 					
@@ -172,28 +156,40 @@ while($row=mysqli_fetch_array($query))
 				
 				
 				
-<?php $cnt=$cnt+1;
-$total_amount=$total_amount+(($qty*$price)+$shippcharge);
-}
+<?php 
+ $total_amount=$total_amount+$row['tamount'];
+ $total_qty=$total_qty+$qty;
+ }
 ?>
 
+					<!--
 					<tr style="background-color:lightyellow;">
 					
 					<td colspan="5"> <h4 class='cart-product-description' align="right"> Total Bill Amount </h4> </td>
 					<td> <h4 class='cart-product-description' align="center"> Rs <?php echo $total_amount;?>.00 </h4> </td>
 					
 					</tr>
+					-->
 					
 <br>
-<br>					
+<br>				
 
 <?php 
 } 
 ?>
-
+<tr  style="background: linear-gradient(to left,yellow,orange);color:white;">
 					
-
-				
+					<td> <h4 class='cart-product-description' align="right"> Number Of Orders </h4> </td>
+					<td> <h4 class='cart-product-description' align="center">  <?php echo $cnt;?> </h4> </td>
+					
+					<td> <h4 class='cart-product-description' align="right"> Number Of Quantity </h4> </td>
+					<td> <h4 class='cart-product-description' align="center"> <?php echo $total_qty;?> </h4> </td>
+					
+					<td> <h4 class='cart-product-description' align="right"> Total Sales </h4> </td>
+					<td> <h4 class='cart-product-description' align="center"> Rs <?php echo $total_amount;?>.00 </h4> </td>
+					
+					</tr>
+		
 			</tbody><!-- /tbody -->
 		</table><!-- /table -->
 		

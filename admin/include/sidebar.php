@@ -69,6 +69,13 @@ $num1 = mysqli_num_rows($rt);
 								</a>
 							</li>
 							
+							<li>
+								<a href="sales-summary.php">
+									<i class="menu-icon icon-group"></i>
+									Sales Summary
+								</a>
+							</li>
+							
 						</ul>
 
 

@@ -75,26 +75,21 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 
 <div class="body-content outer-top-xs">
 
-<?php 
-
-$query2=mysqli_query($con,"select distinct bill_no,orderDate from orders where orders.userId='".$_SESSION['id']."' ORDER BY bill_no DESC");
-
-while($row=mysqli_fetch_array($query2))
-{
-?>
-
 <div class="body-content outer-top-xs" style="margin-top:-120px;">
 	<div class="container">
 		<div class="row inner-bottom-sm">
 			<div class="shopping-cart">
 				<div class="col-md-12 col-sm-12 shopping-cart-table ">
 	<div class="table-responsive">
+	
+	<h2 style="text-align:center;color:purple;font-weight:bold;text-shadow:0px 1px orange;"> Bill Summary</h2>
 <form name="cart" method="post">
 
-<table class="table table-bordered">
+<table class="table table-bordered" style="margin-top:-450px;">
 
 <thead>
 			
+			<!--
 				<tr style="background-color:lightgreen;">
 					<th class="cart-romove item"><?php echo htmlentities($row['orderDate']);?> </th>
 					
@@ -102,12 +97,13 @@ while($row=mysqli_fetch_array($query2))
 					<th colspan="3" class="cart-romove item">No:31, Madathady Lane, Kondavil West, Jaffna, Sri Lanka</th>
 					<th class="cart-romove item">Bill Number : <?php echo htmlentities($row['bill_no']);?></th>
 				</tr>
+			-->
 			
-				<tr style="background-color:lightyellow;">
-					<th class="cart-romove item">Item Nums</th>
-					<th class="cart-product-name item">Product Name</th>
-					<th class="cart-qty item">Quantity</th>
-					<th class="cart-sub-total item">Unit Price</th>
+				<tr style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
+					<th class="cart-romove item">#</th>
+					<th class="cart-product-name item">Bill No</th>
+					<th class="cart-qty item">Total Quantity</th>
+					<th class="cart-sub-total item">Total Amount</th>
 					<th class="cart-sub-total item">Delivery Charge</th>
 					<th class="cart-total item">Grand Total</th>
 				</tr>
@@ -117,18 +113,26 @@ while($row=mysqli_fetch_array($query2))
 
 <?php 
 
-$query=mysqli_query($con,"select products.productName as pname,orders.quantity as qty,products.productPrice as pprice,products.deliveryCharge as shippingcharge from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.bill_no='".$row['bill_no']."' and orders.paymentMethod is not null");
+$query2=mysqli_query($con,"select distinct bill_no,orderDate from orders where orders.userId='".$_SESSION['id']."' ORDER BY bill_no ASC");
 
-$cnt=1;
-$total_amount=0;
+while($row=mysqli_fetch_array($query2))
+{
+  $cnt=$cnt+1;
+?>
 
-while($row=mysqli_fetch_array($query))
-{	
+
+<?php 
+ $query=mysqli_query($con,"select orders.bill_no,sum(orders.quantity) as qty,products.productPrice as pprice,sum((products.productPrice*orders.quantity)) as tamount,products.deliveryCharge as shippingcharge from orders join products on orders.productId=products.id where orders.userId='".$_SESSION['id']."' and orders.bill_no='".$row['bill_no']."' GROUP BY orders.bill_no");
+
+ // $total_amount=0;
+
+ while($row=mysqli_fetch_array($query))
+ {	
 ?>				
 			
 				<tbody>
 
-				<tr align="center" style="background-color:lightyellow;">
+				<tr align="center" style="background: linear-gradient(to right, #00452B, #00416C);color:white;">
 				
 					<td>
 					<h5 class='cart-product-description'>
@@ -138,7 +142,7 @@ while($row=mysqli_fetch_array($query))
 					
 					<td class="cart-product-name-info">
 						<h5 class='cart-product-description'>
-						<?php echo $row['pname'];?> 
+						<?php echo $row['bill_no'];?> 
 						</h5>
 					</td>
 				
@@ -151,7 +155,7 @@ while($row=mysqli_fetch_array($query))
 					
 					<td class="cart-product-sub-total">
 					<h5 class='cart-product-description'>
-					Rs <?php echo $price=$row['pprice']; ?>.00  
+					Rs <?php echo $row['tamount']; ?>.00  
 					</h5>
 					</td>
 					
@@ -163,7 +167,7 @@ while($row=mysqli_fetch_array($query))
 					
 					<td class="cart-product-grand-total">
 					<h5 class='cart-product-description'>
-					Rs <?php echo (($qty*$price)+$shippcharge);?>.00
+					Rs <?php echo $row['tamount']+$row['shippingcharge'];?>.00
 					</h5>
 					</td>
 					
@@ -172,28 +176,40 @@ while($row=mysqli_fetch_array($query))
 				
 				
 				
-<?php $cnt=$cnt+1;
-$total_amount=$total_amount+(($qty*$price)+$shippcharge);
-}
+<?php 
+ $total_amount=$total_amount+$row['tamount'];
+ $total_qty=$total_qty+$qty;
+ }
 ?>
 
+					<!--
 					<tr style="background-color:lightyellow;">
 					
 					<td colspan="5"> <h4 class='cart-product-description' align="right"> Total Bill Amount </h4> </td>
 					<td> <h4 class='cart-product-description' align="center"> Rs <?php echo $total_amount;?>.00 </h4> </td>
 					
 					</tr>
+					-->
 					
 <br>
-<br>					
+<br>				
 
 <?php 
 } 
 ?>
-
+<tr style="background: linear-gradient(to right, #00002B, #005100);color:white;">
 					
-
-				
+					<td> <h4 class='cart-product-description' align="right"> Number Of Orders </h4> </td>
+					<td> <h4 class='cart-product-description' align="center">  <?php echo $cnt;?> </h4> </td>
+					
+					<td> <h4 class='cart-product-description' align="right"> Number Of Quantity </h4> </td>
+					<td> <h4 class='cart-product-description' align="center"> <?php echo $total_qty;?> </h4> </td>
+					
+					<td> <h4 class='cart-product-description' align="right"> Total Amount </h4> </td>
+					<td> <h4 class='cart-product-description' align="center"> Rs <?php echo $total_amount;?>.00 </h4> </td>
+					
+					</tr>
+		
 			</tbody><!-- /tbody -->
 		</table><!-- /table -->
 		

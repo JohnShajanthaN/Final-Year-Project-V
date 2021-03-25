@@ -147,7 +147,7 @@ return true;
 		<div class="panel-heading">
     	<h4 class="unicase-checkout-title">
 	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
-	          <span>1</span>My Profile
+	          <span style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">1</span><font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> My Profile </font>
 	        </a>
 	     </h4>
     </div>
@@ -158,7 +158,7 @@ return true;
 		<!-- panel-body  -->
 	    <div class="panel-body">
 			<div class="row">		
-<h4>Personal info</h4>
+<h4 style="color:purple;font-weight:bold;text-shadow:0px 1px orange">Personal info</h4>
 				<div class="col-md-12 col-sm-12 already-registered-login">
 
 <?php
@@ -170,20 +170,20 @@ while($row=mysqli_fetch_array($query))
 					<form class="register-form" role="form" method="post">
 <div class="form-group">
 					    <label class="info-title" for="name">Name<span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['name'];?>" id="name" name="name" required="required">
+					    <input type="text" class="form-control unicase-form-control text-input" value="<?php echo $row['name'];?>" id="name" name="name" required="required" style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
-			 <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="<?php echo $row['email'];?>" readonly>
+			 <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" value="<?php echo $row['email'];?>" readonly style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Contact No.">Contact No. <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required" value="<?php echo $row['contactno'];?>"  maxlength="10">
+					    <input type="text" class="form-control unicase-form-control text-input" id="contactno" name="contactno" required="required" value="<?php echo $row['contactno'];?>"  maxlength="10" style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
-					  <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+					  <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Update</button>
 					</form>
 					<?php } ?>
 				</div>	
@@ -201,7 +201,7 @@ while($row=mysqli_fetch_array($query))
 						    <div class="panel-heading">
 						      <h4 class="unicase-checkout-title">
 						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
-						          <span>2</span>Change Password
+						          <span style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">2</span> <font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> Change Password </font>
 						        </a>
 						      </h4>
 						    </div>
@@ -211,20 +211,20 @@ while($row=mysqli_fetch_array($query))
 					<form class="register-form" role="form" method="post" name="chngpwd" onSubmit="return valid();">
 <div class="form-group">
 					    <label class="info-title" for="Current Password">Current Password<span>*</span></label>
-					    <input type="password" class="form-control unicase-form-control text-input" id="cpass" name="cpass" required="required">
+					    <input type="password" class="form-control unicase-form-control text-input" id="cpass" name="cpass" required="required" style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="New Password">New Password <span>*</span></label>
-			 <input type="password" class="form-control unicase-form-control text-input" id="newpass" name="newpass">
+			 <input type="password" class="form-control unicase-form-control text-input" id="newpass" name="newpass" style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Confirm Password">Confirm Password <span>*</span></label>
-					    <input type="password" class="form-control unicase-form-control text-input" id="cnfpass" name="cnfpass" required="required" >
+					    <input type="password" class="form-control unicase-form-control text-input" id="cnfpass" name="cnfpass" required="required" style="border-radius:50px;box-shadow:2px 1px purple;">
 					  </div>
-					  <button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button">Change </button>
+					  <button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Change </button>
 					</form> 
 
 
