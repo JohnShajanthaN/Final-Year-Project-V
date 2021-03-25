@@ -90,6 +90,7 @@ while($row=mysqli_fetch_array($query2))
 				<div class="col-md-12 col-sm-12 shopping-cart-table ">
 	<div class="table-responsive">
 <form name="cart" method="post">
+
 <table class="table table-bordered">
 
 <thead>
@@ -110,18 +111,20 @@ while($row=mysqli_fetch_array($query2))
 					<th class="cart-sub-total item">Shipping Charge</th>
 					<th class="cart-total item">Grand Total</th>
 				</tr>
+							
 				
 				</thead><!-- /thead -->
 
-<?php $query=mysqli_query($con,"select products.productName as pname,products.category as proid,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on orders.productId=products.id 
- where bill_no='".$row['bill_no']."' and orders.userId='".$_SESSION['id']."' and orders.paymentMethod is not null");
+<?php 
+
+$query=mysqli_query($con,"select products.productName as pname,orders.quantity as qty,products.productPrice as pprice,products.deliveryCharge as shippingcharge from orders join products on orders.productId=products.id where orders.bill_no='".$row['bill_no']."' and orders.paymentMethod is not null");
+
 $cnt=1;
 $total_amount=0;
-while($row=mysqli_fetch_array($query))
-{
-?>
 
-				
+while($row=mysqli_fetch_array($query))
+{	
+?>				
 			
 				<tbody>
 
@@ -138,6 +141,7 @@ while($row=mysqli_fetch_array($query))
 						<?php echo $row['pname'];?> 
 						</h5>
 					</td>
+				
 					
 					<td class="cart-product-quantity">
 					<h5 class='cart-product-description'>
@@ -165,6 +169,8 @@ while($row=mysqli_fetch_array($query))
 					
 					
 				</tr>
+				
+				
 				
 <?php $cnt=$cnt+1;
 $total_amount=$total_amount+(($qty*$price)+$shippcharge);
