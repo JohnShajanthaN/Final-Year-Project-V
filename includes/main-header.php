@@ -23,9 +23,9 @@
 
     <form name="search" method="post" action="search-result.php">
 	
-            <input class="search-field" placeholder="Search Your Favourite Foods Here" name="product" required="required" style="border-style:solid;border-color:grey;border-radius:200px;width:540px;height:50px;margin-top:4px;font-weight:bold;font-size:14px;" />
+            <input class="search-field" placeholder="Search Your Favourite Foods Here" name="product" required="required" style="border-style:solid;border-width:1px;border-color:purple;border-radius:200px;width:540px;height:50px;margin-top:4px;font-weight:bold;font-size:14px;" />
 
-            <button class="search-button" type="submit" name="search" style="border-style:solid;border-width:3px;height:47px;margin-top:4px;border-radius:200px;width:100px;border-color:grey;"> </button>   
+            <button class="search-button" type="submit" name="search" style="border-style:solid;border-width:1px;height:47px;margin-top:4px;border-radius:200px;width:100px;border-color:purple;"> </button>   
         
     </form>
 	
@@ -38,19 +38,23 @@
 <?php
 if(!empty($_SESSION['cart'])){
 	?>
-	<div class="dropdown dropdown-cart">
+	<div class="dropdown dropdown-cart" >
 		<a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+		
 			<div class="items-cart-inner">
+			
 				<div class="total-price-basket">
-					<span class="lbl">cart -</span>
-					<span class="total-price">
+					<span class="lbl" style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> cart -  </span>
+					<span class="total-price" style="color:purple;font-weight:bold;font-size:14px;">
 						<span class="sign">Rs.</span>
 						<span class="value"><?php echo $_SESSION['tp']; ?></span>
 					</span>
 				</div>
-				<div class="basket">
+				
+				<div class="basket" style="background:purple;color:white;">
 					<i class="glyphicon glyphicon-shopping-cart"></i>
 				</div>
+				
 				<div class="basket-item-count"><span class="count"><?php echo $_SESSION['qnty'];?></span></div>
 			
 		    </div>
@@ -81,13 +85,13 @@ if(!empty($_SESSION['cart'])){
 					<div class="row">
 						<div class="col-xs-4">
 							<div class="image">
-								<a href="product-details.php?pid=<?php echo $row['id'];?>"><img  src="admin/productimages/<?php echo $row['id'];?>/<?php echo $row['productImage1'];?>" width="35" height="50" alt=""></a>
+								<a href="product-details.php?pid=<?php echo $row['id'];?>"><img  src="admin/productimages/<?php echo $row['category'];?>/<?php echo $row['productImage1'];?>" width="35" height="50" alt=""></a>
 							</div>
 						</div>
 						<div class="col-xs-7">
 							
-							<h3 class="name"><a href="product-details.php?pid=<?php echo $row['id'];?>"><?php echo $row['productName']; ?></a></h3>
-							<div class="price">Rs.<?php echo ($row['productPrice']+$row['shippingCharge']); ?>*<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?></div>
+							<h3 class="name"><a href="product-details.php?pid=<?php echo $row['id'];?>" style="color:purple;"><?php echo $row['productName']; ?></a></h3>
+							<div class="price" style="color:green;">Rs <?php echo ($row['productPrice']+$row['shippingCharge']); ?>*<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?></div>
 						</div>
 						
 					</div>
@@ -100,13 +104,13 @@ if(!empty($_SESSION['cart'])){
 			<div class="clearfix cart-total">
 				<div class="pull-right">
 					
-						<span class="text">Total :</span><span class='price'>Rs.<?php echo $_SESSION['tp']="$totalprice". ".00"; ?></span>
+						<span class="text" style="color:purple;font-weight:bold;text">TOTAL AMOUNT :</span> <span class='price' style="color:GREEN;">Rs.<?php echo $_SESSION['tp']="$totalprice". ".00"; ?></span>
 						
 				</div>
 			
 				<div class="clearfix"></div>
 					
-				<a href="my-cart.php" class="btn btn-upper btn-primary btn-block m-t-20">My Cart</a>	
+				<a href="my-cart.php" class="btn btn-upper btn-primary btn-block m-t-20" style="border-style:solid;border-width:1px;border-radius:200px;background:purple;font-weight:bold;">My Cart</a>	
 			</div><!-- /.cart-total-->
 					
 				

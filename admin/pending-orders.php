@@ -90,7 +90,7 @@ $status='Delivered';
 
 // $query=mysqli_query($con,"select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.	orderStatus!='$status' or orders.orderStatus is null");
 
-$query1=mysqli_query($con,"select DISTINCT orders.bill_no,users.name,users.email,users.contactno from orders join users on orders.userId=users.id  where orders.orderDate Between '$from' and '$to' and orders.orderStatus!='Delivered'");
+$query1=mysqli_query($con,"select DISTINCT orders.bill_no,users.name,users.email,users.contactno from orders join users on orders.userId=users.id  where orders.orderStatus!='Delivered'");
 
 $cnt=1;
 while($row=mysqli_fetch_array($query1))

@@ -225,7 +225,7 @@ if(isset($_GET['action']) && $_GET['action']=="add"){
 		<div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp">
 		
 			<div class="more-info-tab clearfix">
-			   <h3 class="new-product-title pull-left">Deals Of This Week</h3>
+			   <h3 class="new-product-title pull-left" style="color:purple;font-weight:bold;text-shadow:1px 0px orange;">Deals Of This Week</h3>
 			</div>
 
 			<div class="tab-content outer-top-xs">
@@ -271,7 +271,7 @@ while ($row=mysqli_fetch_array($ret))
 			
 		</div><!-- /.product-info -->
 		<?php if($row['productAvailability']=='In Stock'){?>
-					<div class="action"><a href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="lnk btn btn-primary">Add to Cart</a></div>
+					<div class="action"><a href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>" class="lnk btn btn-primary" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Add to Cart</a></div>
 				<?php } else {?>
 						<div class="action" style="color:red">Out of Stock</div>
 					<?php } ?>

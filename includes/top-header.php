@@ -26,7 +26,7 @@
 <div class="elfsight-app-7298b2b0-f2df-48e9-a768-f59b4cad3b85"></div>
 
 
-<div class="top-bar animate-dropdown" style="background-color:#333333;">
+<div class="top-bar animate-dropdown" style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 
 	<div class="container-fluid">
 	
@@ -38,7 +38,9 @@
 
 <?php if(strlen($_SESSION['login']))
     {   ?>
-				<li><a href="#"><i class="icon fa fa-user"></i>Welcome -<?php echo htmlentities($_SESSION['username']);?></a></li>
+				<li>
+				<a href="#" style="color:purple;font-weight:bold;"><i class="icon fa fa-user"></i>Welcome -<?php echo htmlentities($_SESSION['username']);?></a>
+				</li>
 				<?php } ?>
 
 
@@ -65,7 +67,7 @@ else{ ?>
 				<ul class="list-unstyled list-inline">
 			
 					<li class="dropdown dropdown-small">
-					<a href="track-orders.php" style="color:white;font-weight:bold;margin-top:6px;border-radius:50px;font-size:14px;">Track Order</a>
+					<a href="track-orders.php" style="background-color:purple;color:white;margin-top:6px;font-weight:bold;border-radius:50px;border-style:none;font-size:14px;">Track Order</a>
 					</li>
 					
 

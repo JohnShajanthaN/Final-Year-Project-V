@@ -27,6 +27,7 @@ $num_rows1 = mysqli_num_rows($result);
 											<?php } ?>
 										</a>
 									</li>
+									
 									<li>
 										<a href="pending-orders.php">
 											<i class="icon-tasks"></i>
@@ -39,6 +40,7 @@ $num = mysqli_num_rows($ret);
 <?php } ?>
 										</a>
 									</li>
+									
 									<li>
 										<a href="delivered-orders.php">
 											<i class="icon-inbox"></i>
@@ -52,6 +54,7 @@ $num1 = mysqli_num_rows($rt);
 
 										</a>
 									</li>
+									
 								</ul>
 							</li>
 							

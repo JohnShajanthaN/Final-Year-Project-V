@@ -1,4 +1,4 @@
-<div class="header-nav animate-dropdown" style="background-color:#333333;">
+<div class="header-nav animate-dropdown" style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
     <div class="container-fluid">
         <div class="yamm navbar navbar-default" role="navigation">
             <div class="navbar-header">

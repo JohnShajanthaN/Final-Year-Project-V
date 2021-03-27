@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2021 at 02:58 AM
+-- Generation Time: Mar 27, 2021 at 08:39 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -104,7 +104,17 @@ INSERT INTO `orders` (`id`, `bill_no`, `userId`, `productId`, `quantity`, `order
 (26, 10, 1, '19', 4, '2021-03-22 14:20:24', 'COD', 'Delivered', '2021-03-22 03:21:04'),
 (27, 11, 1, '20', 2, '2021-03-22 14:49:58', 'COD', 'Delivered', '2021-03-22 03:21:04'),
 (28, 12, 1, '25', 1, '2021-03-22 14:59:11', 'COD', 'Delivered', '2021-03-22 03:21:04'),
-(29, 13, 1, '1', 1, '2021-03-22 15:11:15', 'COD', 'Delivered', '2021-03-22 03:21:04');
+(29, 13, 1, '1', 1, '2021-03-22 15:11:15', 'COD', 'Delivered', '2021-03-22 03:21:04'),
+(30, 14, 1, '5', 3, '2021-03-23 12:13:53', 'COD', 'Delivered', '2021-03-23 01:09:24'),
+(31, 14, 1, '7', 3, '2021-03-23 12:13:53', 'COD', 'Delivered', '2021-03-23 01:09:24'),
+(32, 15, 1, '19', 5, '2021-03-23 13:15:29', 'COD', 'Delivered', '2021-03-23 01:26:06'),
+(33, 15, 1, '25', 5, '2021-03-23 13:15:29', 'COD', 'Delivered', '2021-03-23 01:26:06'),
+(34, 16, 1, '1', 3, '2021-03-24 06:57:46', 'COD', 'Pending', '2021-03-24 06:57:46'),
+(35, 16, 1, '5', 5, '2021-03-24 06:57:46', 'COD', 'Pending', '2021-03-24 06:57:46'),
+(38, 17, 1, '1', 3, '2021-03-25 06:32:23', 'COD', 'Pending', '2021-03-25 06:32:23'),
+(39, 17, 1, '5', 5, '2021-03-25 06:32:23', 'COD', 'Pending', '2021-03-25 06:32:23'),
+(40, 18, 1, '9', 2, '2021-03-27 01:51:19', 'COD', 'Pending', '2021-03-27 01:51:19'),
+(41, 19, 1, '3', 5, '2021-03-27 03:49:33', 'COD', 'Pending', '2021-03-27 03:49:33');
 
 -- --------------------------------------------------------
 
@@ -147,7 +157,9 @@ INSERT INTO `ordertrackhistory` (`id`, `orderId`, `status`, `remark`, `postingDa
 (20, 27, 'Delivered', 'Job Done !!', '2021-03-22 14:55:08'),
 (21, 28, 'Delivered', 'Job Done By Kamal !!!', '2021-03-22 14:59:55'),
 (22, 29, 'in Process', 'Will Be Delivered Within 15 Minutes !!!', '2021-03-22 15:17:43'),
-(23, 29, 'Delivered', 'Done !!', '2021-03-22 15:21:04');
+(23, 29, 'Delivered', 'Done !!', '2021-03-22 15:21:04'),
+(24, 14, 'Delivered', 'Delivered By Nimal !!!', '2021-03-23 13:09:24'),
+(25, 15, 'Delivered', 'Delivered By Shajee !!!', '2021-03-23 13:26:06');
 
 -- --------------------------------------------------------
 
@@ -192,7 +204,7 @@ CREATE TABLE `products` (
   `productImage1` varchar(255) DEFAULT NULL,
   `productImage2` varchar(255) DEFAULT NULL,
   `productImage3` varchar(255) DEFAULT NULL,
-  `shippingCharge` int(11) DEFAULT NULL,
+  `deliveryCharge` int(11) DEFAULT NULL,
   `productAvailability` varchar(255) DEFAULT NULL,
   `postingDate` timestamp NULL DEFAULT current_timestamp(),
   `updationDate` varchar(255) DEFAULT NULL
@@ -202,7 +214,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `shippingCharge`, `productAvailability`, `postingDate`, `updationDate`) VALUES
+INSERT INTO `products` (`id`, `category`, `subCategory`, `productName`, `productCompany`, `productPrice`, `productPriceBeforeDiscount`, `productDescription`, `productImage1`, `productImage2`, `productImage3`, `deliveryCharge`, `productAvailability`, `postingDate`, `updationDate`) VALUES
 (1, 1, 1, 'Banana-Pancakes', 'Food Mafia', 150, 180, 'Banana Flavour Pancakes', 'Banana-Pancakes.jpg', 'Banana-Pancakes.jpg', 'Banana-Pancakes.jpg', 0, 'In Stock', '2020-07-24 16:21:18', '2020-07-24 17:21:18'),
 (2, 1, 2, 'ButterMilk-Pancakes', 'Food Mafia', 200, 250, 'ButterMilk Flavour Pancakes', 'ButterMilk-Pancakes.jpg', 'ButterMilk-Pancakes.jpg', 'ButterMilk-Pancakes.jpg', 0, 'In Stock', '2020-07-24 16:21:18', '2020-07-24 17:21:18'),
 (3, 1, 3, 'Chocolate-Cake', 'Food Mafia', 180, 200, 'Chocolate-Cake', 'Chocolate-Cake.jpg', 'Chocolate-Cake.jpg', 'Chocolate-Cake.jpg', 0, 'In Stock', '2020-07-24 16:21:18', '2020-07-24 17:21:18'),
@@ -333,7 +345,27 @@ INSERT INTO `userlog` (`id`, `userEmail`, `userip`, `loginTime`, `logout`, `stat
 (23, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-22 14:20:21', '22-03-2021 07:50:39 PM', 1),
 (24, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-22 14:49:56', NULL, 1),
 (25, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-22 14:59:08', '22-03-2021 08:29:29 PM', 1),
-(26, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-22 15:11:13', NULL, 1);
+(26, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-22 15:11:13', NULL, 1),
+(27, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-23 02:37:45', NULL, 1),
+(28, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-23 12:13:49', '23-03-2021 05:46:54 PM', 1),
+(29, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-23 13:15:23', NULL, 1),
+(30, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:36:07', '24-03-2021 12:08:38 PM', 1),
+(31, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:39:45', '24-03-2021 12:11:08 PM', 1),
+(32, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:44:41', '24-03-2021 12:22:24 PM', 1),
+(33, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:55:12', NULL, 1),
+(34, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:56:22', '24-03-2021 12:27:02 PM', 1),
+(35, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 06:57:43', '24-03-2021 12:36:30 PM', 1),
+(36, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 07:06:45', '24-03-2021 12:48:43 PM', 1),
+(37, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 07:19:07', '24-03-2021 01:05:56 PM', 1),
+(38, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-24 07:39:15', '25-03-2021 09:31:14 AM', 1),
+(39, 'ikirupan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-25 04:01:22', '25-03-2021 11:37:44 AM', 1),
+(40, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-25 06:23:08', '25-03-2021 11:58:40 AM', 1),
+(41, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-25 06:28:52', '25-03-2021 12:02:35 PM', 1),
+(42, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-25 09:04:09', NULL, 1),
+(43, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-27 01:51:05', NULL, 1),
+(44, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-27 02:01:32', '27-03-2021 08:06:35 AM', 1),
+(45, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-27 02:50:41', '27-03-2021 09:21:51 AM', 1),
+(46, 'johnshajanthan@gmail.com', 0x3a3a3100000000000000000000000000, '2021-03-27 05:31:20', '27-03-2021 11:39:11 AM', 1);
 
 -- --------------------------------------------------------
 
@@ -364,7 +396,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `contactno`, `password`, `shippingAddress`, `shippingState`, `shippingCity`, `shippingPincode`, `billingAddress`, `billingState`, `billingCity`, `billingPincode`, `regDate`, `updationDate`) VALUES
-(1, 'John Shajanthan', 'johnshajanthan@gmail.com', 7615148888, 'Abcd@0149', 'Kondavil', 'Northern', 'Jaffna', 40000, 'Kondavil', 'Northern', 'Jaffna', 40000, '2020-07-24 17:28:38', ''),
+(1, 'John Shajanthan', 'johnshajanthan@gmail.com', 761514888, 'Abcd@0149', 'Kondavil', 'Northern', 'Jaffna', 40000, 'Kondavil', 'Northern', 'Jaffna', 40000, '2020-07-24 17:28:38', ''),
 (2, 'Kirupan', 'ikirupan@gmail.com', 770221046, 'Master_1006', 'Karaveddy East , Karaveddy', 'Jaffna', 'Nelliady', 40000, 'Karaveddy east , karaveddy', 'Jaffna', 'Nelliady', 40000, '2020-11-13 15:06:20', NULL);
 
 --
@@ -445,13 +477,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `ordertrackhistory`
 --
 ALTER TABLE `ordertrackhistory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `productreviews`
@@ -475,7 +507,7 @@ ALTER TABLE `subcategory`
 -- AUTO_INCREMENT for table `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`

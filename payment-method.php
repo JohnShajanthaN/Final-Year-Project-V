@@ -83,9 +83,9 @@ else{
 <div class="panel panel-default checkout-step-01">
 
 	<!-- panel-heading -->
-		<div class="panel-heading">
+		<div class="panel-heading" style="background: linear-gradient(to right, #FF4B2B, #FF416C);">
     	<h4 class="unicase-checkout-title">
-	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
+	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne" style="color:white;">
 	         Select your Payment Method
 	        </a>
 	     </h4>
@@ -97,10 +97,13 @@ else{
 		<!-- panel-body  -->
 	    <div class="panel-body">
 	    <form name="payment" method="post">
-	    <input type="radio" name="paymethod" value="COD" checked="checked"> COD
-	     <input type="radio" name="paymethod" value="Internet Banking"> Internet Banking
-	     <input type="radio" name="paymethod" value="Debit / Credit card"> Debit / Credit card <br /><br />
-	     <input type="submit" value="submit" name="submit" class="btn btn-primary">
+		<input type="radio" name="paymethod" value="COD" checked="checked"> <img src="assets/images/payments/cod.png" width="110px" height="110px" style="margin-right:-3px;">
+	   <input type="radio" name="paymethod" value="BOC" checked="checked"> <img src="assets/images/payments/boc.png" width="80px" height="80px" style="margin-right:30px;" disabled> 
+	      <a href="https://pg.peoplesbank.lk/OrderProcessingEngine/WFrmCheckout.aspx">  <input type="radio" name="paymethod" value="Internet Banking"> <img src="assets/images/payments/peoples.jpg" width="80px" height="80px" style="margin-right:30px;"> </a>
+		  <a href="	 https://www.paypal.com/us/signin">
+	     <input type="radio" name="paymethod" value="Debit / Credit card"> <img src="assets/images/payments/1.png" width="80px" height="80px" style="margin-right:25px;"> </a> <br /><br />
+	     <input type="submit" value="SUBMIT" name="submit" class="btn btn-primary" style="border-radius:50px;width:110px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
+	
 	    	
 
 	    </form>		

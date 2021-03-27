@@ -117,7 +117,7 @@ echo "<script>alert('Shipping Address has been updated');</script>";
 		<div class="panel-heading">
     	<h4 class="unicase-checkout-title">
 	        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
-	          <span>1</span>Billing Address
+	          <span style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">1</span> <font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> Billing Address </font>
 	        </a>
 	     </h4>
     </div>
@@ -138,27 +138,27 @@ while($row=mysqli_fetch_array($query))
 
 					<form class="register-form" role="form" method="post">
 <div class="form-group">
-					    <label class="info-title" for="Billing Address">Billing Address<span>*</span></label>
-					    <textarea class="form-control unicase-form-control text-input"  name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
+					    <label class="info-title" for="Billing Address" style="color:purple;font-weight:bold;text-shadow:0px 1px orange">Billing Address<span>*</span></label>
+					    <textarea class="form-control unicase-form-control text-input"  style="border-radius:50px;box-shadow:2px 1px purple;" name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="Billing State ">Billing State  <span>*</span></label>
-			 <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
+			 <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" style="border-radius:50px;box-shadow:2px 1px purple;" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Billing City">Billing City <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
+					    <input type="text" class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
 					  </div>
  <div class="form-group">
 					    <label class="info-title" for="Billing Pincode">Billing Pincode <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
+					    <input type="text" class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
 					  </div>
 
 
-					  <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+					  <button type="submit" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;"name="update" class="btn-upper btn btn-primary checkout-page-button">Update</button>
 					</form>
 					<?php } ?>
 				</div>	
@@ -176,7 +176,7 @@ while($row=mysqli_fetch_array($query))
 						    <div class="panel-heading">
 						      <h4 class="unicase-checkout-title">
 						        <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
-						          <span>2</span>Shipping Address
+						          <span style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">2</span> <font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> Shipping Address </font>
 						        </a>
 						      </h4>
 						    </div>
@@ -191,27 +191,27 @@ while($row=mysqli_fetch_array($query))
 
 					<form class="register-form" role="form" method="post">
 <div class="form-group">
-					    <label class="info-title" for="Shipping Address">Shipping Address<span>*</span></label>
-					    <textarea class="form-control unicase-form-control text-input" " name="shippingaddress" required="required"><?php echo $row['shippingAddress'];?></textarea>
+					    <label class="info-title" for="Shipping Address" style="color:purple;font-weight:bold;text-shadow:0px 1px orange">Shipping Address<span>*</span></label>
+					    <textarea class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" name="shippingaddress" required="required"><?php echo $row['shippingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="Billing State ">Shipping State  <span>*</span></label>
-			 <input type="text" class="form-control unicase-form-control text-input" id="shippingstate" name="shippingstate" value="<?php echo $row['shippingState'];?>" required>
+			 <input type="text" class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" id="shippingstate" name="shippingstate" value="<?php echo $row['shippingState'];?>" required>
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Billing City">Shipping City <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="shippingcity" name="shippingcity" required="required" value="<?php echo $row['shippingCity'];?>" >
+					    <input type="text" class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" id="shippingcity" name="shippingcity" required="required" value="<?php echo $row['shippingCity'];?>" >
 					  </div>
  <div class="form-group">
 					    <label class="info-title" for="Billing Pincode">Shipping Pincode <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="shippingpincode" name="shippingpincode" required="required" value="<?php echo $row['shippingPincode'];?>" >
+					    <input type="text" class="form-control unicase-form-control text-input" style="border-radius:50px;box-shadow:2px 1px purple;" id="shippingpincode" name="shippingpincode" required="required" value="<?php echo $row['shippingPincode'];?>" >
 					  </div>
 
 
-					  <button type="submit" name="shipupdate" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+					  <button type="submit" name="shipupdate" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;" class="btn-upper btn btn-primary checkout-page-button">Update</button>
 					</form>
 					<?php } ?>
 

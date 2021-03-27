@@ -2,7 +2,7 @@
 session_start();
 error_reporting(0);
 include('include/config.php');
-if(strlen($_SESSION['login'])==0)
+if(strlen($_SESSION['alogin'])==0)
     {   
 header('location:index.php');
 }
@@ -64,7 +64,7 @@ popUpWin = open(URLStr,'popUpWin', 'toolbar=no,location=no,directories=no,status
 
 									<br />
 
-<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table display table-responsive" style="margin-top:-700px;">
+<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table display table-responsive" style="margin-top:-770px;">
 
 <thead>
 			

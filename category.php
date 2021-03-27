@@ -114,7 +114,7 @@ header('location:my-wishlist.php');
 	            <!-- ================================== TOP NAVIGATION ================================== -->
 <div class="side-menu animate-dropdown outer-bottom-xs">       
 <div class="side-menu animate-dropdown outer-bottom-xs">
-    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i>Sub Categories</div>        
+    <div class="head" style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;"><i class="icon fa fa-align-justify fa-fw"></i>Sub Categories</div>        
     <nav class="yamm megamenu-horizontal" role="navigation">
   
         <ul class="nav">
@@ -125,7 +125,7 @@ while($row=mysqli_fetch_array($sql))
 {
     ?>
                 <a href="sub-category.php?scid=<?php echo $row['id'];?>" class="dropdown-toggle"><i class="icon fa fa-desktop fa-fw"></i>
-                <?php echo $row['subcategory'];?></a>
+                <font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> <?php echo $row['subcategory'];?> </font> </a>
                 <?php }?>
                         
 </li>
@@ -133,10 +133,13 @@ while($row=mysqli_fetch_array($sql))
     </nav>
 </div>
 </div><!-- /.side-menu -->
-<!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
+<!-- ================================== TOP NAVIGATION : END ================================== -->	            
+
+
+<!--div class="sidebar-module-container">
 	            	<h3 class="section-title">Order by</h3>
 	            	<div class="sidebar-filter">
-		            	<!-- ============================================== SIDEBAR CATEGORY ============================================== -->
+		            	
 <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
 	<div class="widget-header m-t-20">
 		<h4 class="widget-title">Category</h4>
@@ -156,17 +159,15 @@ while($row=mysqli_fetch_array($sql))
 	        </div>
 	    </div>
 	    <?php } ?>
-	</div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
-
-
-
-    
-<!-- ============================================== COLOR: END ============================================== -->
-
-	            	</div><!-- /.sidebar-filter -->
-	            </div><!-- /.sidebar-module-container -->
+	</div>
+</div>
+ 
+	            	</div>
+	            </div--><!-- /.sidebar-module-container -->
+				
+				
             </div><!-- /.sidebar -->
+			
 			<div class='col-md-9'>
 					<!-- ========================================== SECTION – HERO ========================================= -->
 
@@ -241,11 +242,14 @@ while ($row=mysqli_fetch_array($ret))
 						<li class="add-cart-button btn-group">
 						
 								<?php if($row['productAvailability']=='In Stock'){?>
-										<button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-								<i class="fa fa-shopping-cart"></i>													
+								
+										<button class="btn btn-primary icon" data-toggle="dropdown" type="button" style="border-radius:50px 0px 0px 50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
+								
+								<i class="fa fa-shopping-cart"></i>	
+								
 							</button>
 							<a href="category.php?page=product&action=add&id=<?php echo $row['id']; ?>">
-							<button class="btn btn-primary" type="button">Add to cart</button></a>
+							<button class="btn btn-primary" type="button" style="border-radius:0px 50px 50px 0px;;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;padding-left:0px;">Add to cart</button></a>
 								<?php } else {?>
 							<div class="action" style="color:red">Out of Stock</div>
 					<?php } ?>

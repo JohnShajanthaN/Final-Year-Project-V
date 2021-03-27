@@ -186,8 +186,8 @@ if(!empty($_SESSION['cart'])){
 					<td colspan="7">
 						<div class="shopping-cart-btn">
 							<span class="">
-								<a href="index.php" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-								<input type="submit" name="submit" value="Update shopping cart" class="btn btn-upper btn-primary pull-right outer-right-xs">
+								<a href="index.php" class="btn btn-upper btn-primary outer-left-xs" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Continue Shopping</a>
+								<input type="submit" name="submit" value="Update shopping cart" class="btn btn-upper btn-primary pull-right outer-right-xs" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 							</span>
 						</div><!-- /.shopping-cart-btn -->
 					</td>
@@ -270,10 +270,10 @@ $_SESSION['pid']=$pdtid;
 	</div>
 </div><!-- /.shopping-cart-table -->			<div class="col-md-4 col-sm-12 estimate-ship-tax">
 	<table class="table table-bordered">
-		<thead>
+		<thead style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 			<tr>
 				<th>
-					<span class="estimate-title">Shipping Address</span>
+					<span class="estimate-title" style="color:white;">Shipping Address</span>
 				</th>
 			</tr>
 		</thead>
@@ -289,26 +289,26 @@ while($row=mysqli_fetch_array($query))
 
 <div class="form-group">
 					    <label class="info-title" for="Billing Address">Billing Address<span>*</span></label>
-					    <textarea class="form-control unicase-form-control text-input"  name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
+					    <textarea style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input"  name="billingaddress" required="required"><?php echo $row['billingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="Billing State ">Billing State  <span>*</span></label>
-			 <input type="text" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
+			 <input type="text" style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input" id="bilingstate" name="bilingstate" value="<?php echo $row['billingState'];?>" required>
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Billing City">Billing City <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
+					    <input type="text" style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input" id="billingcity" name="billingcity" required="required" value="<?php echo $row['billingCity'];?>" >
 					  </div>
  <div class="form-group">
 					    <label class="info-title" for="Billing Pincode">Billing Pincode <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
+					    <input type="text" style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input" id="billingpincode" name="billingpincode" required="required" value="<?php echo $row['billingPincode'];?>" >
 					  </div>
 
 
-					  <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+					  <button type="submit" name="update" class="btn-upper btn btn-primary checkout-page-button" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Update</button>
 			
 					<?php } ?>
 		
@@ -322,10 +322,10 @@ while($row=mysqli_fetch_array($query))
 
 <div class="col-md-4 col-sm-12 estimate-ship-tax">
 	<table class="table table-bordered">
-		<thead>
+		<thead style="background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">
 			<tr>
 				<th>
-					<span class="estimate-title">Billing Address</span>
+					<span class="estimate-title" style="color:white;">Billing Address</span>
 				</th>
 			</tr>
 		</thead>
@@ -341,26 +341,26 @@ while($row=mysqli_fetch_array($query))
 
 <div class="form-group">
 					    <label class="info-title" for="Shipping Address">Shipping Address<span>*</span></label>
-					    <textarea class="form-control unicase-form-control text-input"  name="shippingaddress" required="required"><?php echo $row['shippingAddress'];?></textarea>
+					    <textarea style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input"  name="shippingaddress" required="required"><?php echo $row['shippingAddress'];?></textarea>
 					  </div>
 
 
 
 						<div class="form-group">
 					    <label class="info-title" for="Billing State ">Shipping State  <span>*</span></label>
-			 <input type="text" class="form-control unicase-form-control text-input" id="shippingstate" name="shippingstate" value="<?php echo $row['shippingState'];?>" required>
+			 <input type="text" style="border-radius:50px;box-shadow:2px 1px purple;" class="form-control unicase-form-control text-input" id="shippingstate" name="shippingstate" value="<?php echo $row['shippingState'];?>" required>
 					  </div>
 					  <div class="form-group">
 					    <label class="info-title" for="Billing City">Shipping City <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="shippingcity" name="shippingcity" required="required" value="<?php echo $row['shippingCity'];?>" >
+					    <input style="border-radius:50px;box-shadow:2px 1px purple;" type="text" class="form-control unicase-form-control text-input" id="shippingcity" name="shippingcity" required="required" value="<?php echo $row['shippingCity'];?>" >
 					  </div>
  <div class="form-group">
 					    <label class="info-title" for="Billing Pincode">Shipping Pincode <span>*</span></label>
-					    <input type="text" class="form-control unicase-form-control text-input" id="shippingpincode" name="shippingpincode" required="required" value="<?php echo $row['shippingPincode'];?>" >
+					    <input style="border-radius:50px;box-shadow:2px 1px purple;" type="text" class="form-control unicase-form-control text-input" id="shippingpincode" name="shippingpincode" required="required" value="<?php echo $row['shippingPincode'];?>" >
 					  </div>
 
 
-					  <button type="submit" name="shipupdate" class="btn-upper btn btn-primary checkout-page-button">Update</button>
+					  <button type="submit" name="shipupdate" class="btn-upper btn btn-primary checkout-page-button" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">Update</button>
 					<?php } ?>
 
 		
@@ -377,8 +377,8 @@ while($row=mysqli_fetch_array($query))
 			<tr>
 				<th>
 					
-					<div class="cart-grand-total">
-						Grand Total<span class="inner-left-md"><?php echo $_SESSION['tp']="$totalprice". ".00"; ?></span>
+					<div class="cart-grand-total" >
+						<font style="color:purple;font-weight:bold;text-shadow:0px 1px orange"> Grand Total<span class="inner-left-md"><?php echo $_SESSION['tp']="$totalprice". ".00"; ?></span>  </font>
 					</div>
 				</th>
 			</tr>
@@ -387,7 +387,7 @@ while($row=mysqli_fetch_array($query))
 				<tr>
 					<td>
 						<div class="cart-checkout-btn pull-right">
-							<button type="submit" name="ordersubmit" class="btn btn-primary">PROCCED TO CHEKOUT</button>
+							<button type="submit" name="ordersubmit" class="btn btn-primary" style="border-radius:50px;background: linear-gradient(to right, #FF4B2B, #FF416C);color:white;">PROCCED TO CHEKOUT</button>
 						
 						</div>
 					</td>

@@ -1,5 +1,5 @@
 <div id="brands-carousel" class="logo-slider wow fadeInUp">
-		<h3 class="section-title">Our Favourite Foods</h3>
+		<h3 class="section-title" style="color:purple;font-weight:bold;text-shadow:1px 0px orange;">Our Favourite Foods</h3>
 		<div class="logo-slider-inner">	
 			<div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
 			
